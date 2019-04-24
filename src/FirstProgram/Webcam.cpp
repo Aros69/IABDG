@@ -1,6 +1,7 @@
 #include "Webcam.h"
 
 Webcam *Webcam::instance_;
+
 Webcam::Webcam() {
     webcam = cv::VideoCapture(0);
     WIN_RF = "Webcam";
@@ -22,7 +23,7 @@ int Webcam::getFrameNumber() const {
     return frameNumber;
 }
 
-Webcam& Webcam::getInstance() {
+Webcam &Webcam::getInstance() {
     if (instance_ == nullptr) {
         instance_ = new Webcam();
     }
@@ -36,6 +37,10 @@ void Webcam::update() {
         exit(0);
     }
     ++frameNumber;
+    rectangle(actualFrame, cv::Point(10, 2), cv::Point(100, 20),
+              cv::Scalar(255, 255, 255), -1);
+    putText(actualFrame, std::to_string(frameNumber), cv::Point(15, 15),
+              cv::FONT_HERSHEY_COMPLEX, 0.5, cv::Scalar(0, 0, 0));
     //std::cout << "Frame: " << frameNumber << "\n";
     imshow(WIN_RF, actualFrame);
 }
