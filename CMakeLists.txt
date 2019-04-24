@@ -20,5 +20,7 @@ target_link_libraries(OpenCvWebcam.exe ${OpenCV_LIBS})
 
 add_executable(FirstProgram.exe src/FirstProgram/main.cpp
         src/FirstProgram/Webcam.cpp
-        src/FirstProgram/Webcam.h)
+        src/FirstProgram/Webcam.h
+        src/FirstProgram/BackgroundFiltering.cpp
+        src/FirstProgram/BackgroundFiltering.h)
 target_link_libraries(FirstProgram.exe ${OpenCV_LIBS})
