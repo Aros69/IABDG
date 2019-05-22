@@ -1,17 +1,18 @@
 #include <iostream>
 
-#include "Webcam.h"
+#include "BackgroundFiltering.h"
 
 int main() {
     std::cout << "Hello World !\n";
 
     Webcam& webcam = Webcam::getInstance();
+    BackgroundFiltering filtering;
 
     int delay = 10;
-    for (;;) //Show the image captured in the window and repeat
+    for (;;)
     {
         webcam.update();
-        //std::cout<<&webcam<<" "<<&webcam2<<" "<<&webcam3<<"\n";
+        filtering.update();
 
         char c = (char) cv::waitKey(delay);
         if (c == 27) break;
