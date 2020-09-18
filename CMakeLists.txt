@@ -22,5 +22,7 @@ add_executable(FirstProgram.exe src/FirstProgram/main.cpp
         src/FirstProgram/Webcam.cpp
         src/FirstProgram/Webcam.h
         src/FirstProgram/BackgroundFiltering.cpp
-        src/FirstProgram/BackgroundFiltering.h)
+        src/FirstProgram/BackgroundFiltering.h
+        src/FirstProgram/BodyPartRecognition.cpp
+        src/FirstProgram/BodyPartRecognition.h src/FirstProgram/Game.cpp src/FirstProgram/Game.h src/FirstProgram/NinjaBattle.cpp src/FirstProgram/NinjaBattle.h src/FirstProgram/BasicDetector.cpp src/FirstProgram/BasicDetector.h)
 target_link_libraries(FirstProgram.exe ${OpenCV_LIBS})

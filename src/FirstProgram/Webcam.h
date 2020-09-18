@@ -10,7 +10,7 @@
 #include <string>
 #include <iomanip>
 #include <sstream>
-#include <cv.hpp>
+#include <opencv2/opencv.hpp>
 #include <opencv2/core.hpp>
 #include <opencv2/videoio.hpp>
 #include <opencv2/highgui.hpp>
@@ -37,6 +37,8 @@ public:
     void update();
 
     const cv::Mat &getActualFrame() const;
+
+    const char *getWindowName() { return WIN_RF; };
 
     int getFrameNumber() const;
 

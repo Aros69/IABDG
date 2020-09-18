@@ -1,0 +1,13 @@
+message(STATUS "Compilation and integration of CMake")
+
+IF(EXISTS "libs2/opencv")
+    message(STATUS "OpenCV found")
+    #message(STATUS ${CMAKE_SOURCE_DIR})
+    #set(CMAKE_BUILD_TYPE "Release")
+    #set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}/libs2/build")
+    #include(libs2/opencv/CMakeLists.txt)
+    #include_directories(libs2/opencv/include/opencv2/)
+    #include_directories(libs2/opencv/modules/highgui/include/opencv2)
+ELSE(EXISTS "libs2/opencv")
+    message(FATAL_ERROR " OpenCV in \"libs2/opencv\" not found : try command  `git submodule update --init` in your prompt")
+ENDIF()
