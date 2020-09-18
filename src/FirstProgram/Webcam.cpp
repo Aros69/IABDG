@@ -15,7 +15,7 @@ Webcam::~Webcam() {
     cv::destroyWindow(WIN_RF);
 }
 
-const cv::Mat &Webcam::getActualFrame() const {
+const cv::Mat &Webcam::getActualFrame() const{
     return actualFrame;
 }
 
@@ -31,16 +31,19 @@ Webcam &Webcam::getInstance() {
 }
 
 void Webcam::update() {
-    webcam >> actualFrame;
+    cv::Mat x;
+    webcam >> x;
+    cv::flip(x, actualFrame, 1);
     if (actualFrame.empty()) {
         std::cout << " < < <  Game over!  > > > ";
         exit(0);
     }
     ++frameNumber;
-    rectangle(actualFrame, cv::Point(10, 2), cv::Point(100, 20),
+    cv::Mat t = actualFrame.clone();
+    rectangle(t, cv::Point(10, 2), cv::Point(100, 20),
               cv::Scalar(255, 255, 255), -1);
-    putText(actualFrame, std::to_string(frameNumber), cv::Point(15, 15),
+    putText(t, std::to_string(frameNumber), cv::Point(15, 15),
               cv::FONT_HERSHEY_COMPLEX, 0.5, cv::Scalar(0, 0, 0));
     //std::cout << "Frame: " << frameNumber << "\n";
-    imshow(WIN_RF, actualFrame);
+    imshow(WIN_RF, t);
 }
