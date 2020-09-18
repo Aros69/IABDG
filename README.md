@@ -1,2 +1,3 @@
-# Image Analysis Body Detection Game
+# IABDG
+Image Analysis Body Detection Game
 
